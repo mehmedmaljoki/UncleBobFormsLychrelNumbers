@@ -1,21 +1,24 @@
 package lychrel;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class LychrelTest {
 
     private final int LIMIT = 1000;
 
+    @Ignore
     @Test
     public void facts() throws Exception {
-        isNotLychrel(1, 0);
-        isNotLychrel(2, 0);
-        isNotLychrel();
+        convergesAtIteration(1, 0);
+        convergesAtIteration(2, 0);
+        convergesAtIteration(10, 1);
+        convergesAtIteration(11, 0);
     }
 
-    private void isNotLychrel(int n, int iteration) {
+    private void convergesAtIteration(int n, int iteration) {
         assertEquals(iteration, Lychrel.convergesAtIteration(n, LIMIT));
     }
 }
